@@ -9,3 +9,20 @@ before_install:
 
 script:
         - docker run -e CI=true ameysontakke1/docker-react npm run test -- --coverage
+
+# Elastic Beanstalk configuration for build deployment. Elastic beanstalk is good for single container app.
+deploy:
+        provider: elasticbeanstalk
+        region: "ap-south-1"
+        app: "docker-react"
+        env: "DockerReact-env"
+        #Bucket_name by default created by AWS and can be found in s3 service.
+        bucket_name: "elasticbeanstalk-ap-south-1-472308837270"
+        #Initially for bicket path we will not get default folder created in S3 for elastic beanstalk since we did not deploy it yet
+        bucket_path: "docker"
+        # This on is defined because it should deply the code whenever we have changes on Git master branch
+        on:
+           branch: master
+       #Below varibles are defined in Travis CI project's   More Options - Environment varibales. These variables are for programatic user access and secret key
+        access_key_id: $AWS_ACCESS_KEY
+        secret_access_key: $AWS_SECRET_KEY
