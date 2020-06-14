@@ -8,7 +8,7 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-         New change is loaded real quick
+         New code committed from New feature branch of git.
         </p>
         <a
           className="App-link"
