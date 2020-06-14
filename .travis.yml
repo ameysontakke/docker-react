@@ -14,12 +14,12 @@ script:
 deploy:
         provider: elasticbeanstalk
         region: "ap-south-1"
-        app: "DockerReact"
-        env: "Dockerreact-env"
+        app: "DockerTestReact"
+        env: "Dockertestreact-env"
         #Bucket_name by default created by AWS and can be found in s3 service.
         bucket_name: "elasticbeanstalk-ap-south-1-472308837270"
         #Initially for bicket path we will not get default folder created in S3 for elastic beanstalk since we did not deploy it yet
-        bucket_path: "DockerReact"
+        bucket_path: "DockerTestReact"
         # This on is defined because it should deply the code whenever we have changes on Git master branch
         on:
            branch: master

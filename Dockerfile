@@ -3,7 +3,9 @@ WORKDIR '/app'
 COPY package*.json ./
 RUN npm install
 COPY . .
-CMD ["npm","run","build"]
+#This will not work for integration with Travis CI and AWS EBS instead you need to right RUN command
+#CMD ["npm","run","build"]
+RUN npm run build
 
 FROM nginx
 EXPOSE 80
